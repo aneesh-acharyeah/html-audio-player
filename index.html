@@ -233,7 +233,7 @@
 </head>
 <body>
     <div class="audio-player-container">
-        <img class="album-art" src="https://via.placeholder.com/600x200?text=Album+Art" alt="Album Art">
+        <img class="album-art" src="https://via.placeholder.com/600x200?text=Album+Art" alt="Album Art" onerror="this.src='https://via.placeholder.com/600x200?text=No+Album+Art'">
         <div class="track-info">
             <div class="track-title">Sample Track</div>
             <div class="track-artist">Artist Name</div>
@@ -295,11 +295,20 @@
                 audio.src = src;
                 trackTitle.textContent = title;
                 trackArtist.textContent = artist;
+                // Reset album art to trigger onerror if needed
                 albumArt.src = `https://via.placeholder.com/600x200?text=${encodeURIComponent(title)}`;
                 playlistItems.forEach(i => i.classList.remove('active'));
                 item.classList.add('active');
                 audio.load();
                 console.log(`Loading track: ${title} - ${src}`);
+                if (isPlaying) {
+                    audio.play().then(() => {
+                        console.log('Playback started');
+                    }).catch(e => {
+                        console.error('Playback failed:', e);
+                        alert('Failed to play audio. Ensure the source is valid and try again.');
+                    });
+                }
             }
 
             if (playlistItems.length > 0) {
