@@ -49,5 +49,3 @@ A lightweight, dependency-free HTML5 audio player built with vanilla HTML, CSS, 
 - **Audio Not Playing**: Ensure MP3 URLs are valid, use a web server, and click play first. Check console for `MediaError` or `DOMException`.
 - **Image Issues**: Verify album art URLs; the fallback image appears if they fail.
 - **Controls Not Working**: Check for JavaScript errors in the console and ensure a modern browser.
-
-```
