@@ -1,4 +1,3 @@
-```
 # HTML Audio Player 
 
 A lightweight, dependency-free HTML5 audio player built with vanilla HTML, CSS, and JavaScript. It features a modern, responsive UI for seamless music playback with intuitive controls and playlist support.
